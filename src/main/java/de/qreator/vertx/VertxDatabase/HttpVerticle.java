@@ -104,12 +104,19 @@ public class HttpVerticle extends AbstractVerticle {
                     } else if (antwort.equals("existiert")) {
                         jo.put("text", "Registration").put("Regis", "existiert");
                         response.end(Json.encodePrettily(jo));
-                    } else {
+                    } 
+                    else if (antwort.equals("fehler")) {
                         jo.put("text", "Registration").put("Regis", "fehler");
-response.end(Json.encodePrettily(jo));
+                        response.end(Json.encodePrettily(jo));
+                    } 
+                    
+                    else {
+                        jo.put("text", "Registration").put("Regis", "fehler");
+                        response.end(Json.encodePrettily(jo));
                     }
 
                 }
+
             });
         } else if (typ.equals("angemeldet")) {
             LOGGER.info("Anfrage, ob User angemeldet ist.");
@@ -187,87 +194,72 @@ response.end(Json.encodePrettily(jo));
                     int tag = test.getInteger("tag");
                     int monat = test.getInteger("monat");
                     LOGGER.info(tag + "." + monat);
-                    if (21 <= tag && tag <= 31 && 1 == monat || 1 <= tag && tag <= 21 && 2==monat) {
+                    if (21 <= tag && tag <= 31 && 1 == monat || 1 <= tag && tag <= 21 && 2 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WASSERMANN").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (20 <= tag && tag <= 29 && 2 == monat || 1 <= tag && tag <= 20 && 3==monat) {
+                    } else if (20 <= tag && tag <= 29 && 2 == monat || 1 <= tag && tag <= 20 && 3 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "FISCHE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 3 == monat || 1 <= tag && tag <= 20 && 4==monat) {
+                    } else if (21 <= tag && tag <= 31 && 3 == monat || 1 <= tag && tag <= 20 && 4 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WIDDER").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 4 == monat || 1 <= tag && tag <= 20 && 5==monat) {
+                    } else if (21 <= tag && tag <= 31 && 4 == monat || 1 <= tag && tag <= 20 && 5 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "STIER").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 5 == monat || 1 <= tag && tag <= 21 && 6==monat) {
+                    } else if (21 <= tag && tag <= 31 && 5 == monat || 1 <= tag && tag <= 21 && 6 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "ZWILLINGE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (22 <= tag && tag <= 31 && 6 == monat || 1 <= tag && tag <= 22 && 7==monat) {
+                    } else if (22 <= tag && tag <= 31 && 6 == monat || 1 <= tag && tag <= 22 && 7 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "KREBS").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (23 <= tag && tag <= 31 && 7 == monat || 1 <= tag && tag <= 23 && 8==monat) {
+                    } else if (23 <= tag && tag <= 31 && 7 == monat || 1 <= tag && tag <= 23 && 8 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "LÖWE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (24 <= tag && tag <= 31 && 8 == monat || 1 <= tag && tag <= 23 && 9==monat) {
+                    } else if (24 <= tag && tag <= 31 && 8 == monat || 1 <= tag && tag <= 23 && 9 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "JUNGFRAU").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (20 <= tag && tag <= 24 && 9 == monat || 1 <= tag && tag <= 23 && 10==monat) {
+                    } else if (20 <= tag && tag <= 24 && 9 == monat || 1 <= tag && tag <= 23 && 10 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WAAGE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (24 <= tag && tag <= 31 && 10 == monat || 1 <= tag && tag <= 22 && 11==monat) {
+                    } else if (24 <= tag && tag <= 31 && 10 == monat || 1 <= tag && tag <= 22 && 11 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "SKORPION").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (23 <= tag && tag <= 31 && 11 == monat || 1 <= tag && tag <= 21 && 12==monat) {
+                    } else if (23 <= tag && tag <= 31 && 11 == monat || 1 <= tag && tag <= 21 && 12 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "SCHÜTZE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (22 <= tag && tag <= 31 && 12 == monat || 1 <= tag && tag <= 20 && 1==monat) {
+                    } else if (22 <= tag && tag <= 31 && 12 == monat || 1 <= tag && tag <= 20 && 1 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "STEINBOCK").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
                     }
-                
-                    
-                    
 
                 }
 
             });
-        }
-        else if (typ.equals("job")) {
+        } else if (typ.equals("job")) {
 
             String name = session.get("name");
             JsonObject request = new JsonObject().put("name", name);
@@ -278,84 +270,71 @@ response.end(Json.encodePrettily(jo));
                     int tag = test.getInteger("tag");
                     int monat = test.getInteger("monat");
                     LOGGER.info(tag + "." + monat);
-                    if (21 <= tag && tag <= 31 && 1 == monat || 1 <= tag && tag <= 21 && 2==monat) {
+                    if (21 <= tag && tag <= 31 && 1 == monat || 1 <= tag && tag <= 21 && 2 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WASSERMANN").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (20 <= tag && tag <= 29 && 2 == monat || 1 <= tag && tag <= 20 && 3==monat) {
+                    } else if (20 <= tag && tag <= 29 && 2 == monat || 1 <= tag && tag <= 20 && 3 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "FISCHE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 3 == monat || 1 <= tag && tag <= 20 && 4==monat) {
+                    } else if (21 <= tag && tag <= 31 && 3 == monat || 1 <= tag && tag <= 20 && 4 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WIDDER").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 4 == monat || 1 <= tag && tag <= 20 && 5==monat) {
+                    } else if (21 <= tag && tag <= 31 && 4 == monat || 1 <= tag && tag <= 20 && 5 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "STIER").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (21 <= tag && tag <= 31 && 5 == monat || 1 <= tag && tag <= 21 && 6==monat) {
+                    } else if (21 <= tag && tag <= 31 && 5 == monat || 1 <= tag && tag <= 21 && 6 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "ZWILLINGE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (22 <= tag && tag <= 31 && 6 == monat || 1 <= tag && tag <= 22 && 7==monat) {
+                    } else if (22 <= tag && tag <= 31 && 6 == monat || 1 <= tag && tag <= 22 && 7 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "KREBS").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (23 <= tag && tag <= 31 && 7 == monat || 1 <= tag && tag <= 23 && 8==monat) {
+                    } else if (23 <= tag && tag <= 31 && 7 == monat || 1 <= tag && tag <= 23 && 8 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "LÖWE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (24 <= tag && tag <= 31 && 8 == monat || 1 <= tag && tag <= 23 && 9==monat) {
+                    } else if (24 <= tag && tag <= 31 && 8 == monat || 1 <= tag && tag <= 23 && 9 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "JUNGFRAU").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (20 <= tag && tag <= 24 && 9 == monat || 1 <= tag && tag <= 23 && 10==monat) {
+                    } else if (20 <= tag && tag <= 24 && 9 == monat || 1 <= tag && tag <= 23 && 10 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "WAAGE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (24 <= tag && tag <= 31 && 10 == monat || 1 <= tag && tag <= 22 && 11==monat) {
+                    } else if (24 <= tag && tag <= 31 && 10 == monat || 1 <= tag && tag <= 22 && 11 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "SKORPION").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (23 <= tag && tag <= 31 && 11 == monat || 1 <= tag && tag <= 21 && 12==monat) {
+                    } else if (23 <= tag && tag <= 31 && 11 == monat || 1 <= tag && tag <= 21 && 12 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "SCHÜTZE").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
-                    }
-                    else if (22 <= tag && tag <= 31 && 12 == monat || 1 <= tag && tag <= 20 && 1==monat) {
+                    } else if (22 <= tag && tag <= 31 && 12 == monat || 1 <= tag && tag <= 20 && 1 == monat) {
                         LOGGER.info(tag + "." + monat);
 
                         jo.put("typ", "STEINBOCK").put("text", "ok");
                         response.end(Json.encodePrettily(jo));
                     }
-                
-                    
-                    
 
                 }
 
             });
         }
-    }}
+    }
+}

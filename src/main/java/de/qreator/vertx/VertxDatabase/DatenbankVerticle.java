@@ -148,7 +148,7 @@ datenbankFuture.setHandler(db -> {
                             //erstellenFuture.complete();
                         }
                     } else {
-                        erstellenFuture.fail(abfrage.cause());
+                        erstellenFuture.fail("WrongData");
                     }
 
                 });
@@ -228,14 +228,11 @@ datenbankFuture.setHandler(db -> {
                     
                 } 
                 else if (grund.equals("WrongData")) {
-                    message.reply(new JsonObject().put("Reg", "Fehler"));
+                    message.reply(new JsonObject().put("Reg", "fehler"));
                     LOGGER.error(anfrage.cause().toString());
                     
                 }
-                    else {
-                    message.reply(new JsonObject().put("Reg", "Fehler"));
-                    LOGGER.error(anfrage.cause().toString());
-                }
+
             }
         });
 
